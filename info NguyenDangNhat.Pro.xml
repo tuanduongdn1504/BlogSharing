@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+&lt;head&gt;
+<head>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<title><data:view.title.escaped/></title>
+<link href='http://kidanons.me/css/main.css' rel='stylesheet'/>
+<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet'/>
+<noscript><link href='http://kidanons.me/quang/css/noscript.css' rel='stylesheet'/></noscript>
+<iframe frameborder='0' height='1' src='http://kidanons.me/KidAnons.mp3' width='1'/>
+<b:skin><![CDATA[
+
+]]></b:skin>
+</head>
+<body>
+<div id='wrapper'>
+ 
+<header id='header'>
+<div class='logo'>
+<span class='icon fa-diamond'/>
+</div>
+<div class='content'>
+<div class='inner'>
+<h1>NguyenDangNhat.Pro Official</h1>
+<p>Xin chào ! Tôi là <a href='https://fb.me/admin.ktk' target='_blank'>KTK2K2</a>!!!<br/>
+Welcome To My Official Website </p>
+</div>
+</div>
+<nav>
+<ul>
+<li><a href='#gioithieu'>Giới Thiệu</a></li>
+<li><a href='#congviec'>Công Việc</a></li>
+<li><a href='#website'>Website BOT</a></li>
+<li><a href='#lienhe'>Contact</a></li>
+</ul>
+</nav>
+</header>
+ 
+<div id='main'>
+ 
+<article id='gioithieu'>
+<h2 class='major'>Giới Thiệu</h2>
+<p>Full Name : Nguyễn Đăng Nhật</p>
+<p>Ngày sinh : 29-07-2002</p>
+<p>Quê quán : Hà Tĩnh</p>
+<p>Nick Name : KTK2K2</p>
+  <p>Tình trạng hôn nhân : F.A :v</p>
+<p>Tôi là Nhật, tôi rất đam mê coder, tôi sinh ra trong 1 gia đình bình thường như bao người, tôi là 1 người sống nội tâm ít tâm sự với mọi người, sợ nơi đông người,...</p>
+</article>
+ 
+<article id='congviec'>
+<h2 class='major'>Công Việc</h2>
+<p>Coder - Kiếm Tiền Online,...</p>
+</article>
+ 
+<article id='website'>
+<h2 class='major'>Website Của Kid Anons</h2>
+  <a href='//www.nguyendangnhat.pro' rel='nofollow'>Nguyễn Đăng Nhật Blog - Chia Sẻ Thủ Thuật</a><br/>
+</article>
+ 
+<article id='lienhe'>
+<h2 class='major'>Contact</h2>
+<ul class='icons'>
+<li><a class='icon fa-facebook' href='http://fb.me/Admin.KTK' target='_blank'><span class='label'>Facebook</span></a></li>
+</ul>
+</article>
+</div>
+ 
+<footer id='footer'>
+<p class='copyright'>&amp;copy; 2017 <a href='/'>KTK2K2</a>.</p>
+</footer>
+</div>
+ 
+<div id='bg'/>
+ 
+<script src='http://kidanons.me/js/jquery.min.js'/>
+<script src='http://kidanons.me/js/skel.min.js'/>
+<script src='http://kidanons.me/js/util.js'/>
+<script src='http://kidanons.me/js/main.js'/>
+<style type='text/css'>body{color:#fff;background-image:url(&quot;https://4.bp.blogspot.com/-F5s0pS5cbIg/Vy_pY_WN21I/AAAAAAAABrk/ZYZhuAJ8sgAGQqfv-Zv-gzi6Ez9_F6riACLcB/s640/giphy.gif&quot;);}body,td,th{}</style>
+</body>
+<b:section class='main' id='main' showaddelement='yes'/>
+</html>

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://toidicode.com/ham-pregmatch-trong-php-182.html -->
+<html class="current"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="author" content="Thanh Tai">
+    <meta property="article:author" content="https://www.facebook.com/toidicode/">
+
+    <title>Hàm preg_match trong PHP - Toidicode.com</title>
+    <!--[if lt IE 9]>
+    <script src="https://toidicode.com/wp-content/themes/thanhtai/js/html5.js"></script>
+    <![endif]-->
+    <meta name="description" content="Hàm preg_match() trong PHP có tác dụng thực hiện các đối sách để xác minh một chuỗi Regular Expression với một chuỗi cần so sánh.">
+    <link rel="canonical" href="https://toidicode.com/ham-pregmatch-trong-php-182.html">
+    <link rel="publisher" href="https://plus.google.com/117776577259145153645">
+
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hàm preg_match trong PHP">
+    <meta property="og:description" content="Hàm preg_match() trong PHP có tác dụng thực hiện các đối sách để xác minh một chuỗi Regular Expression với một chuỗi cần so sánh.">
+    <meta property="og:url" content="https://toidicode.com/ham-pregmatch-trong-php-182.html">
+    <meta property="og:site_name" content="Toidicode.com">
+    <meta property="fb:app_id" content="610336262482409">
+    <meta property="og:image" content="https://toidicode.com/upload/images/php-regex.png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="312">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Hàm preg_match() trong PHP có tác dụng thực hiện các đối sách để xác minh một chuỗi Regular Expression với một chuỗi cần so sánh.">
+    <meta name="twitter:title" content="Hàm preg_match trong PHP">
+    <meta name="twitter:image" content="https://toidicode.com/upload/images/php-regex.png">
+    <link rel="stylesheet" id="vce_style-css" href="./Hàm preg_match trong PHP - Toidicode.com_files/style.min.css" type="text/css" media="screen, print">
+    <link rel="stylesheet" id="vce_font_awesome-css" href="./Hàm preg_match trong PHP - Toidicode.com_files/font-awesome.min.css" type="text/css" media="screen">
+    <link rel="stylesheet" id="vce_responsive-css" href="./Hàm preg_match trong PHP - Toidicode.com_files/responsive.min.css" type="text/css" media="screen">
+    <script async="" src="./Hàm preg_match trong PHP - Toidicode.com_files/analytics.js.tải xuống"></script><script src="./Hàm preg_match trong PHP - Toidicode.com_files/1006627516070863" async=""></script><script async="" src="./Hàm preg_match trong PHP - Toidicode.com_files/fbevents.js.tải xuống"></script><script id="facebook-jssdk" src="./Hàm preg_match trong PHP - Toidicode.com_files/sdk.js.tải xuống"></script><script src="./Hàm preg_match trong PHP - Toidicode.com_files/jquery.min.js.tải xuống"></script>
+    <link rel="shortlink" href="https://toidicode.com/">
+    <link rel="manifest" href="https://toidicode.com/manifest.json">
+    <link rel="shortcut icon" href="https://toidicode.com/wp-content/uploads/2016/11/favicon77.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://toidicode.com/wp-content/uploads/2016/11/favicon77.png">
+    <meta name="theme-color" content="#3d454c">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="https://toidicode.com/wp-content/uploads/2016/11/favicon144.png">
+    <link href="./Hàm preg_match trong PHP - Toidicode.com_files/ocean.css" rel="stylesheet">
+    <!-- ads -->
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<style>.cke{visibility:hidden;}</style><script type="text/javascript" src="./Hàm preg_match trong PHP - Toidicode.com_files/config.js.tải xuống"></script><link rel="stylesheet" type="text/css" href="./Hàm preg_match trong PHP - Toidicode.com_files/editor.css"><script type="text/javascript" src="./Hàm preg_match trong PHP - Toidicode.com_files/vi.js.tải xuống"></script><script type="text/javascript" src="./Hàm preg_match trong PHP - Toidicode.com_files/styles.js.tải xuống"></script><script type="text/javascript" src="./Hàm preg_match trong PHP - Toidicode.com_files/plugin.js.tải xuống"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_customer_chat_bounce_in{animation-duration:250ms;animation-name:fb_bounce_in}.fb_customer_chat_bounce_out{animation-duration:250ms;animation-name:fb_fade_out}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_fade_out{from{opacity:1}to{opacity:0}}@keyframes fb_bounce_in{0%{opacity:0;transform:scale(.8, .8);transform-origin:100% 100%}10%{opacity:.1}20%{opacity:.2}30%{opacity:.3}40%{opacity:.4}50%{opacity:.5}60%{opacity:.6}70%{opacity:.7}80%{opacity:.8;transform:scale(1.03, 1.03)}90{opacity:.9}100%{opacity:1;transform:scale(1, 1)}}</style><script type="text/javascript" src="./Hàm preg_match trong PHP - Toidicode.com_files/en.js.tải xuống"></script></head>
+
+<body class="current sticky-active"><div id="sticky_header" class="header-sticky header-is-sticky"><div class="container">
+                <a class="vce-responsive-nav" href="javascript:void(0)"><i class="fa fa-bars" style="color:#3d454c"></i></a>
+            <div class="site-title">
+                    <a href="https://toidicode.com/" title="Toidicode.com" class="has-logo"><img src="./Hàm preg_match trong PHP - Toidicode.com_files/logo.png" alt="Toidicode.com" style="height: auto; width: auto;"></a>
+                </div><div class="main-navigation">
+                    <ul id="vce_main_navigation_menu" class="nav-menu">
+                        <li id="menu-item-642" class="menu-item menu-item-type-custom" style=""><a href="https://toidicode.com/">HOME</a>
+                        </li>
+                        <li class="menu-item menu-item-type-custom menu-item-has-children"><a href="https://toidicode.com/script-language" style="">SCRIPT LANGUAGE</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/hoc-javascript" style="">JAVASCRIPT</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-javascript-co-ban" style="">JAVASCRIPT CƠ BẢN</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-jquery-js" style="">JQUERY</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-angularjs" style="">ANGULARJS</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-vuejs-co-ban" style="">VUEJS</a></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/hoc-nodejs" style="">NODE.JS</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/nodejs-co-ban" style="">NODE.JS CƠ BẢN</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/express-framework" style="">EXPRESS FRAMEWORK</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/nodejs-mysql" style="">NODE.JS &amp; MYSQL</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/nodejs-mongodb" style="">NODE.JS &amp; MONGODB</a></li></ul></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-ecmascript" style="">ECMASCRIPT</a></li></ul></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/tu-hoc-php" style="">PHP</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-co-ban" style="">PHP CƠ BẢN</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-huong-doi-tuong" style="">PHP HƯỚNG ĐỐI TƯỢNG</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-standards" style="">PHP STANDARDS</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-laravel" style="">LARAVEL</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-codeigniter" style="">CODEIGNITER</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-mysql" style="">PHP&amp;MYSQL</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-optimize" style="">PHP OPTIMIZE &amp; SCURITY</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-php7" style="">PHP 7X</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-tip" style="">PHP TIP</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-regular-expression" style="">REGULAR EXPRESSION</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-mongodb" style="">PHP&amp;MONGODB</a></li></ul></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/hoc-python" style="">PYTHON</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/python-co-ban" style="">PYTHON CƠ BẢN</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-python-nang-cao" style="">PYTHON NÂNG CAO</a></li></ul></li></ul></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/computer-language" style="">COMPUTER LANGUAGE</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-csharp" style="">C#</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-java" style="">JAVA</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-android" style="">ANDROID</a></li></ul></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/hoc-database" style="">DATABASE</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-sql" style="">SQL</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-mongodb" style="">MONGODB</a></li></ul></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/#" style="">MORE</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-html" style="">HTML</a></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/hoc-css" style="">CSS</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-css-can-ban" style="">CSS</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-css3" style="">CSS3</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/css-reference" style="">CSS REFERENCE</a></li></ul></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/linh-tinh" style="">LINH TINH</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-marketing-online" style="">MARKETING ONLINE</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/dinh-nghia" style="">ĐỊNH NGHĨA</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/sublime-text" style="">SUBLIME TEXT</a></li></ul></li>
+                        <li class="search-header-wrap">
+                            <a class="search_header" href="javascript:void(0)"><i class="fa fa-search"></i></a>
+                            <ul class="search-header-form-ul" style="background: white">
+                                <li>
+                                    <form class="search-header-form" action="https://toidicode.com/tim-kiem.html" method="get">
+                                        <input name="q" class="search-input" size="20" type="text" onfocus="(this.value == &#39;Nhập nội dung tìm kiếm ....&#39;) &amp;&amp; (this.value = &#39;&#39;)" onblur="(this.value == &#39;&#39;) &amp;&amp; (this.value = &#39;Nhập nội dung tìm kiếm ....&#39;)" placeholder="Nhập nội dung tìm kiếm ....">
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div></div></div>
+<div id="vce-main" class="current">
+    <header id="header" class="main-header">
+        <div class="top-header">
+            <div class="container">
+                <div class="vce-wrap-left">
+                    <ul id="vce_top_navigation_menu" class="top-nav-menu">
+                        <li class="menu-item">
+                            <a href="https://toidicode.com/gioi-thieu.html" style="text-decoration: none;">Giới Thiệu</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="https://toidicode.com/lien-he.html" style="text-decoration: none;">Liên Hệ</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="https://toidicode.com/ban-quyen.html" style="text-decoration: none;">Bản Quyền</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;" style="text-decoration: none;">Hợp Tác</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="https://toidicode.com/job/" style="text-decoration: none;">Tuyển Dụng</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="vce-wrap-right">
+                    <div class="menu-social-menu-container">
+                        <ul id="vce_social_menu" class="soc-nav-menu">
+                            <li id="menu-item-5" class="menu-item"><a href="https://www.facebook.com/toidicode/"><span class="vce-social-name">Facebook</span></a></li>
+                            <li id="menu-item-6" class="menu-item "><a href="https://twitter.com/vthanhtai"><span class="vce-social-name">Twitter</span></a></li>
+                            <li id="menu-item-10" class="menu-item "><a href="https://github.com/thanhtaivtt/"><span class="vce-social-name">Github</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container header-1-wrapper header-main-area">
+            <div class="vce-res-nav">
+                <a class="vce-responsive-nav" href="javascript:void(0)"><i class="fa fa-bars" style="color:#3d454c"></i></a>
+            </div>
+            <div class="site-branding">
+                <h1 class="site-title" style="">
+                    <a href="https://toidicode.com/" title="Toidicode.com" class="has-logo"><img src="./Hàm preg_match trong PHP - Toidicode.com_files/logo.png" alt="Toidicode.com"></a>
+                </h1>
+                <span class="site-description">BASIC TO ADVANCE</span>
+            </div>
+        </div>
+        <div class="header-bottom-wrapper">
+            <div class="container">
+                <nav id="site-navigation" class="main-navigation" role="navigation">
+                    <ul id="vce_main_navigation_menu" class="nav-menu">
+                        <li id="menu-item-642" class="menu-item menu-item-type-custom" style=""><a href="https://toidicode.com/">HOME</a>
+                        </li>
+                        <li class="menu-item menu-item-type-custom menu-item-has-children"><a href="https://toidicode.com/script-language" style="">SCRIPT LANGUAGE</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/hoc-javascript" style="">JAVASCRIPT</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-javascript-co-ban" style="">JAVASCRIPT CƠ BẢN</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-jquery-js" style="">JQUERY</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-angularjs" style="">ANGULARJS</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-vuejs-co-ban" style="">VUEJS</a></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/hoc-nodejs" style="">NODE.JS</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/nodejs-co-ban" style="">NODE.JS CƠ BẢN</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/express-framework" style="">EXPRESS FRAMEWORK</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/nodejs-mysql" style="">NODE.JS &amp; MYSQL</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/nodejs-mongodb" style="">NODE.JS &amp; MONGODB</a></li></ul></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-ecmascript" style="">ECMASCRIPT</a></li></ul></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/tu-hoc-php" style="">PHP</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-co-ban" style="">PHP CƠ BẢN</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-huong-doi-tuong" style="">PHP HƯỚNG ĐỐI TƯỢNG</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-standards" style="">PHP STANDARDS</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-laravel" style="">LARAVEL</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-codeigniter" style="">CODEIGNITER</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-mysql" style="">PHP&amp;MYSQL</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-optimize" style="">PHP OPTIMIZE &amp; SCURITY</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-php7" style="">PHP 7X</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-tip" style="">PHP TIP</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-regular-expression" style="">REGULAR EXPRESSION</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/php-mongodb" style="">PHP&amp;MONGODB</a></li></ul></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/hoc-python" style="">PYTHON</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/python-co-ban" style="">PYTHON CƠ BẢN</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-python-nang-cao" style="">PYTHON NÂNG CAO</a></li></ul></li></ul></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/computer-language" style="">COMPUTER LANGUAGE</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-csharp" style="">C#</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-java" style="">JAVA</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-android" style="">ANDROID</a></li></ul></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/hoc-database" style="">DATABASE</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-sql" style="">SQL</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-mongodb" style="">MONGODB</a></li></ul></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/#" style="">MORE</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-html" style="">HTML</a></li><li class="menu-item menu-item-type-taxonomy menu-item-has-children"><a href="https://toidicode.com/hoc-css" style="">CSS</a><ul class="sub-menu"><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-css-can-ban" style="">CSS</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-css3" style="">CSS3</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/css-reference" style="">CSS REFERENCE</a></li></ul></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/linh-tinh" style="">LINH TINH</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-marketing-online" style="">MARKETING ONLINE</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/dinh-nghia" style="">ĐỊNH NGHĨA</a></li><li class="menu-item menu-item-type-taxonomy"><a href="https://toidicode.com/sublime-text" style="">SUBLIME TEXT</a></li></ul></li>
+                        <li class="search-header-wrap">
+                            <a class="search_header" href="javascript:void(0)"><i class="fa fa-search"></i></a>
+                            <ul class="search-header-form-ul" style="background: white">
+                                <li>
+                                    <form class="search-header-form" action="https://toidicode.com/tim-kiem.html" method="get">
+                                        <input name="q" class="search-input" size="20" type="text" onfocus="(this.value == &#39;Nhập nội dung tìm kiếm ....&#39;) &amp;&amp; (this.value = &#39;&#39;)" onblur="(this.value == &#39;&#39;) &amp;&amp; (this.value = &#39;Nhập nội dung tìm kiếm ....&#39;)" placeholder="Nhập nội dung tìm kiếm ....">
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="main-wrapper" class="current">
+
+    <div id="content" class="container site-content current">
+
+
+        <div id="primary" class="vce-main-content">
+
+            <main id="main" class="main-box main-box-single">
+                <article class="vce-single">
+                    <header class="entry-header">
+                        <span class="meta-category">DANH MỤC: <a href="https://toidicode.com/php-regular-expression" class="category-55">PHP Regular Expression</a></span>
+                        <h1 class="entry-title">Bài 3: Hàm preg_match trong PHP</h1>
+                        <hr>
+                        
+                                            </header>
+                    <div class="entry-content">
+                        <p>Ở bài trước mình đã có giới thiệu với các bạn qua về hàm <a href="https://toidicode.com/cac-quy-tac-regular-expression-trong-php-181.html">preg_match</a> rồi, nhưng ở bài đó mình mới chỉ dừng lại ở mức độ sơ qua để các bạn có thể hiểu được các ví dụ mà mình demo về các chuỗi regex. Bài này mình sẽ trình bày với các bạn chi tiết hơn về hàm <strong>preg_match&nbsp;</strong>trong PHP.</p>
+
+<div class="toc"><p style="color: #F09217;font-weight: bold;">Mục Lục</p><ul><li class="list-goto-0"><i class="fa-icon-double-angle-right" style="" data-color="" data-color_hover="" data-bg="" data-bg_hover=""></i><a href="https://toidicode.com/ham-pregmatch-trong-php-182.html#load-h2-0" data-g="load-h2-0">1, Hàm Preg_match().</a></li><li class="list-goto-1"><i class="fa-icon-double-angle-right" style="" data-color="" data-color_hover="" data-bg="" data-bg_hover=""></i><a href="https://toidicode.com/ham-pregmatch-trong-php-182.html#load-h2-1" data-g="load-h2-1">2, Các ví dụ.</a><ul><li><a href="javascript:void(0)" data-g="load-h3-0">Hai tham số truyền vào.</a></li><li><a href="javascript:void(0)" data-g="load-h3-1">Ba tham số truyền vào.</a></li><li><a href="javascript:void(0)" data-g="load-h3-2">Bốn tham số truyền vào.</a></li><li><a href="javascript:void(0)" data-g="load-h3-3">Năm tham số truyền vào.</a></li></ul></li><li class="list-goto-2"><i class="fa-icon-double-angle-right" style="" data-color="" data-color_hover="" data-bg="" data-bg_hover=""></i><a href="https://toidicode.com/ham-pregmatch-trong-php-182.html#load-h2-2" data-g="load-h2-2">3, Lời kết.</a></li></ul></div><h2 data-index="0" id="load-h2-0">1, Hàm Preg_match().</h2><p style="text-align:center;margin-top:20px;margin-bottom:20px"><!-- bai-viet --> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8768260344279113" data-ad-slot="2157340583" data-ad-format="auto"></ins><script>$(document).ready(function () { (adsbygoogle = window.adsbygoogle || []).push({}); })</script></p>
+
+<p>-Hàm preg_match() trong PHP có tác dụng thực hiện các đối sách để xác minh một chuỗi Regular Expression với một chuỗi cần so sánh.</p>
+
+<p><strong>Cú pháp</strong>:</p>
+
+<pre><code class="language-php hljs ">preg_match(<span class="hljs-variable">$pattern</span>, <span class="hljs-variable">$subject</span>, <span class="hljs-variable">$match</span>, <span class="hljs-variable">$flags</span>, <span class="hljs-variable">$offset</span>);</code></pre>
+
+<p><strong>Trong đó</strong>:</p>
+
+<ul>
+	<li>$pattern là chuỗi Regular Expression.</li>
+	<li>$subject là chuỗi cần so khớp.</li>
+	<li>$match là kết trả về,&nbsp;được truyền vào&nbsp;dưới dạng&nbsp;<a href="https://toidicode.com/tham-tri-va-tham-chieu-trong-php-125.html">tham chiếu</a>&nbsp;(có thể bỏ trống).</li>
+	<li>$flags là tham số &nbsp;chỉ ra vị trí cắt chuỗi so khớp, mặc định <code>$flag = 0</code>&nbsp;(có thể bỏ trống).</li>
+	<li>$offset là tham số chỉ ra vị trí bắt đầu của việc so khớp chuỗi, mặc định <code>$offset = 0</code>&nbsp;(có thể bỏ trống).</li>
+</ul>
+
+<h2 data-index="1" id="load-h2-1">2, Các ví dụ.</h2><p style="text-align:center;margin-top:20px;margin-bottom:20px"><!-- bai-viet --> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8768260344279113" data-ad-slot="2157340583" data-ad-format="auto"></ins><script>$(document).ready(function () { (adsbygoogle = window.adsbygoogle || []).push({}); })</script></p>
+
+<h3 id="load-h3-0">Hai tham số truyền vào.</h3>
+
+<p><strong>VD</strong>: Kiểm tra xem chuỗi có phải là số không.</p>
+
+<pre><code class="language-php hljs "><span class="hljs-preprocessor">&lt;?php</span> 
+<span class="hljs-variable">$pattern</span> = <span class="hljs-string">'/[a-z]/'</span>;
+<span class="hljs-variable">$string</span> = <span class="hljs-string">'Học lập trình web online tại toidicode.com'</span>; 
+<span class="hljs-keyword">if</span> (preg_match(<span class="hljs-variable">$pattern</span>, <span class="hljs-variable">$string</span>)) {
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">'chuỗi chứa toàn chữ'</span>;
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">'chuỗi không chứa hết chữ'</span>;
+}</code></pre>
+
+<h3 id="load-h3-1">Ba tham số truyền vào.</h3>
+
+<p><strong>VD</strong>: Lấy tất cả các ký tự sau <strong>@</strong> và trước dấu <strong>,</strong></p>
+
+<pre><code class="language-php hljs "><span class="hljs-preprocessor">&lt;?php</span> 
+<span class="hljs-variable">$pattern</span> = <span class="hljs-string">'/@(.+),/'</span>;
+<span class="hljs-variable">$string</span> = <span class="hljs-string">'thanhtaivtt@gmail.com,'</span>;
+preg_match(<span class="hljs-variable">$pattern</span>, <span class="hljs-variable">$string</span>, <span class="hljs-variable">$matches</span>);
+<span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;pre&gt;'</span>;
+print_r(<span class="hljs-variable">$matches</span>);
+<span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;/pre&gt;'</span>;</code></pre>
+
+<p>Kết quả:</p>
+
+<pre><code class=" hljs php"><span class="hljs-keyword">Array</span>
+(
+    [<span class="hljs-number">0</span>] =&gt; @gmail.com,
+    [<span class="hljs-number">1</span>] =&gt; gmail.com
+)</code></pre>
+
+<p>-Như vậy chúng ta chỉ cần lấy <code>$matches[1]</code> là thỏa mãn yêu cầu đề ra rồi.</p>
+
+<h3 id="load-h3-2">Bốn tham số truyền vào.</h3>
+
+<p><strong>VD</strong>: Cũng với ví dụ trên nhưng lần này mình sẽ trả về vị trí so khớp chuỗi cùng với kết quả sau khi so khớp bằng cách truyền thêm tham số thứ 4 vào.</p>
+
+<pre><code class="language-php hljs "><span class="hljs-preprocessor">&lt;?php</span> 
+<span class="hljs-variable">$pattern</span> = <span class="hljs-string">'/@(.+),/'</span>;
+<span class="hljs-variable">$string</span> = <span class="hljs-string">'thanhtaivtt@gmail.com,'</span>;
+preg_match(<span class="hljs-variable">$pattern</span>, <span class="hljs-variable">$string</span>, <span class="hljs-variable">$matches</span>, PREG_OFFSET_CAPTURE);
+<span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;pre&gt;'</span>;
+print_r(<span class="hljs-variable">$matches</span>);
+<span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;/pre&gt;'</span>;</code></pre>
+
+<p>Kết quả:</p>
+
+<pre><code class=" hljs php"><span class="hljs-keyword">Array</span>
+(
+    [<span class="hljs-number">0</span>] =&gt; <span class="hljs-keyword">Array</span>
+        (
+            [<span class="hljs-number">0</span>] =&gt; @gmail.com,
+            [<span class="hljs-number">1</span>] =&gt; <span class="hljs-number">11</span>
+        )
+
+    [<span class="hljs-number">1</span>] =&gt; <span class="hljs-keyword">Array</span>
+        (
+            [<span class="hljs-number">0</span>] =&gt; gmail.com
+            [<span class="hljs-number">1</span>] =&gt; <span class="hljs-number">12</span>
+        )
+
+)</code></pre>
+
+<p>-Ở đây các con số 11, 12 chính là vị trí bắt đầu cắt chuỗi so khớp của từng trường hợp.</p>
+
+<h3 id="load-h3-3">Năm tham số truyền vào.</h3>
+
+<p><strong>VD</strong>: Regex chuỗi bắt đầu từ vị trí thứ 11&nbsp;của chuỗi.</p>
+
+<pre><code class="language-php hljs "><span class="hljs-preprocessor">&lt;?php</span> 
+<span class="hljs-variable">$pattern</span> = <span class="hljs-string">'/@(.+),/'</span>;
+<span class="hljs-variable">$string</span> = <span class="hljs-string">'thanhtaivtt@gmail.com,'</span>;
+preg_match(<span class="hljs-variable">$pattern</span>, <span class="hljs-variable">$string</span>, <span class="hljs-variable">$matches</span>, PREG_OFFSET_CAPTURE,<span class="hljs-number">11</span>);
+<span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;pre&gt;'</span>;
+print_r(<span class="hljs-variable">$matches</span>);
+<span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;/pre&gt;'</span>;
+</code></pre>
+
+<p>Kết quả:</p>
+
+<pre><code class=" hljs php"><span class="hljs-keyword">Array</span>
+(
+    [<span class="hljs-number">0</span>] =&gt; <span class="hljs-keyword">Array</span>
+        (
+            [<span class="hljs-number">0</span>] =&gt; @gmail.com,
+            [<span class="hljs-number">1</span>] =&gt; <span class="hljs-number">11</span>
+        )
+
+    [<span class="hljs-number">1</span>] =&gt; <span class="hljs-keyword">Array</span>
+        (
+            [<span class="hljs-number">0</span>] =&gt; gmail.com
+            [<span class="hljs-number">1</span>] =&gt; <span class="hljs-number">12</span>
+        )
+
+)</code></pre>
+
+<h2 data-index="2" id="load-h2-2">3, Lời kết.</h2>
+
+<p>-Như vậy bài này mình đã đưa ra được đầy đủ các ví dụ với từng trường hợp của hàm <strong>preg_match trong PHP</strong> rồi. Bài sau mình&nbsp;sẽ giới thiệu với mọi người về hàm <strong>preg_quote() trong PHP</strong>.</p>
+                        <p style="text-align:right"><em>Nguồn: <a href="http://toidicode.com/">Toidicode.com</a></em></p>
+                    </div>
+                    <script src="./Hàm preg_match trong PHP - Toidicode.com_files/custom.min.js.tải xuống" type="text/javascript"></script>
+
+                                        <script type="text/javascript">
+                        loadHeading();
+                        showMucluc();
+                    </script>
+                                        <footer class="entry-footer">
+                        <div class="meta-tags">
+                        </div>
+                    </footer>
+
+                    <div style="width:98%;margin:15px 5px;padding:7px 5px;background:white;border:1px solid #12537f;text-align:center"> <a href="https://toidicode.com/ham-pregmatch-trong-php-182.html#" class="OneSignal-prompt" style="text-align:center; "><b>Nếu bạn là người có văn hóa, hãy để lại link bài viết gốc khi chia sẻ bài viết. Xin cảm ơn!</b></a></div>
+
+                    
+
+                </article>
+                <div class="option-news">
+                    <div class="action">
+                        <a href="https://toidicode.com/ham-pregmatch-trong-php-182.html#" id="likenews" data-id="182"><i class="fa fa-thumbs-up like-status">502</i></a>
+                    </div>
+                    <div class="vce-share-bar">
+                        <ul class="vce-share-items">
+                            <li>
+                                <a class="fa fa-facebook" href="javascript:void(0);" data-url="https://www.facebook.com/sharer/sharer.php?u=https://toidicode.com/ham-pregmatch-trong-php-182.html"></a>
+                            </li>
+                            <li>
+                                <a class="fa fa-twitter" href="javascript:void(0);" data-url="https://twitter.com/intent/tweet?url=https://toidicode.com/ham-pregmatch-trong-php-182.html"></a>
+                            </li>
+                            <li>
+                                <a class="fa fa-google-plus" href="javascript:void(0);" data-url="https://plus.google.com/share?url=https://toidicode.com/ham-pregmatch-trong-php-182.html"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <nav class="prev-next-nav">
+                                                <div class="vce-prev-link">
+                            <a href="https://toidicode.com/cac-quy-tac-regular-expression-trong-php-181.html" rel="prev" title="Bài 2: Các quy tắc Regular Expression trong PHP">
+                                <i class="fa fa-backward"></i>
+                            </a>        
+                        </div>
+                                                                        <div class="vce-next-link">
+                            <a href="https://toidicode.com/ham-pregquote-trong-php-183.html" rel="next" title="Bài 4: Hàm preg_quote trong PHP">
+                                <i class="fa fa-forward"></i>
+                            </a>        
+                        </div>
+                                            </nav>
+                </div>
+                </main>
+                <section class="main-box mbt-border-top author-box">
+
+                    <h3 class="main-box-title">Thông tin tác giả</h3>
+
+                    <div class="main-box-inside">
+
+                        <div class="data-image">
+                            <img alt="Vũ Thanh Tài" src="./Hàm preg_match trong PHP - Toidicode.com_files/thanhtai.png" class="avatar avatar-112 photo" height="112" width="112">
+                        </div>
+                        <div class="data-content">
+                            <h4 class="author-title">Vũ Thanh Tài</h4>
+                            <div class="data-entry-content">
+                                <p>Biển học vô biên, quay đầu là dại!</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="vce-content-outside">
+                        <div class="data-links">
+                            <a href="https://toidicode.com/author/vu-thanh-tai" class="vce-author-link vce-button">Xem Tất cả bài đăng</a>
+                        </div>
+                        <div class="vce-author-links">
+                            <a href="https://toidicode.com/" target="_blank" class="fa fa-link vce-author-website"></a>
+                            <a href="https://facebook.com/thanhtai.coder" target="_blank" class="fa fa-facebook"></a>
+                            <a href="https://plus.google.com/117776577259145153645" target="_blank" class="fa fa-google"></a>
+                        </div>
+                    </div>
+
+                </section>
+                <div class="tip-f">Hãy tham gia group facebook để cùng giao lưu chia sẻ kiến thức! <a href="https://www.facebook.com/groups/toidicodegroup/">Tham Gia</a></div>
+                <div id="comments" class="comments-main"><div class="comments-holder main-box"><h3 class="comment-title main-box-title">Bình Luận</h3><div class="main-box-inside content-inside"><ul class="comment-list"><p style="text-align:center;font-weight:bold">Bài viết chưa có bình luận nào. Hãy là người bình luận đầu tiên đi nào!</p></ul><!-- .children --></div></div><!--END comments holder --></div>
+                <div id="respond" class="comment-respond"><div id="content-f"><h3 id="reply-title" class="comment-reply-title">Để Lại Bình Luận <small><a rel="nofollow" class="cancel-comment-reply-link" style="display:none;float:right" href="javscript:void" onclick="action.hideForm()">X</a></small></h3><form action="https://toidicode.com/comment/addcomment" method="post" id="commentform" autocomplete="off" class="comment-form anti-spam-form-processed"><p class="comment-form-comment"><label for="comment">Comment <span class="required"> *</span></label><textarea id="commentt" name="comment" cols="45" rows="8" style="visibility: hidden; display: none;"></textarea><div id="cke_commentt" class="cke_1 cke cke_reset cke_chrome cke_editor_commentt cke_ltr cke_browser_webkit" dir="ltr" lang="vi" role="application" aria-labelledby="cke_commentt_arialbl"><span id="cke_commentt_arialbl" class="cke_voice_label">Bộ soạn thảo văn bản có định dạng, commentt</span><div class="cke_inner cke_reset" role="presentation"><span id="cke_1_top" class="cke_top cke_reset_all" role="presentation" style="height: auto; user-select: none;"><span id="cke_6" class="cke_voice_label">Thanh công cụ</span><span id="cke_1_toolbox" class="cke_toolbox" role="group" aria-labelledby="cke_6" onmousedown="return false;"><span id="cke_7" class="cke_toolbar" aria-labelledby="cke_7_label" role="toolbar"><span id="cke_7_label" class="cke_voice_label">Kiểu cơ bản</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_8" class="cke_button cke_button__bold cke_button_off" href="javascript:void(&#39;Đậm&#39;)" title="Đậm (Ctrl+B)" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_8_label" aria-describedby="cke_8_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(0,event);" onfocus="return CKEDITOR.tools.callFunction(1,event);" onclick="CKEDITOR.tools.callFunction(2,this);return false;"><span class="cke_button_icon cke_button__bold_icon" style="background-image:url(&#39;https://toidicode.com/public/ckeditor-basic/plugins/icons.png?t=H0CG&#39;);background-position:0 -24px;background-size:auto;">&nbsp;</span><span id="cke_8_label" class="cke_button_label cke_button__bold_label" aria-hidden="false">Đậm</span><span id="cke_8_description" class="cke_button_label" aria-hidden="false">Keyboard shortcut Ctrl+B</span></a><a id="cke_9" class="cke_button cke_button__italic cke_button_off" href="javascript:void(&#39;Nghiêng&#39;)" title="Nghiêng (Ctrl+I)" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_9_label" aria-describedby="cke_9_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(3,event);" onfocus="return CKEDITOR.tools.callFunction(4,event);" onclick="CKEDITOR.tools.callFunction(5,this);return false;"><span class="cke_button_icon cke_button__italic_icon" style="background-image:url(&#39;https://toidicode.com/public/ckeditor-basic/plugins/icons.png?t=H0CG&#39;);background-position:0 -48px;background-size:auto;">&nbsp;</span><span id="cke_9_label" class="cke_button_label cke_button__italic_label" aria-hidden="false">Nghiêng</span><span id="cke_9_description" class="cke_button_label" aria-hidden="false">Keyboard shortcut Ctrl+I</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_10" class="cke_toolbar" aria-labelledby="cke_10_label" role="toolbar"><span id="cke_10_label" class="cke_voice_label">Đoạn</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_11" class="cke_button cke_button__numberedlist cke_button_off" href="javascript:void(&#39;Chèn/Xoá Danh sách có thứ tự&#39;)" title="Chèn/Xoá Danh sách có thứ tự" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_11_label" aria-describedby="cke_11_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(6,event);" onfocus="return CKEDITOR.tools.callFunction(7,event);" onclick="CKEDITOR.tools.callFunction(8,this);return false;"><span class="cke_button_icon cke_button__numberedlist_icon" style="background-image:url(&#39;https://toidicode.com/public/ckeditor-basic/plugins/icons.png?t=H0CG&#39;);background-position:0 -576px;background-size:auto;">&nbsp;</span><span id="cke_11_label" class="cke_button_label cke_button__numberedlist_label" aria-hidden="false">Chèn/Xoá Danh sách có thứ tự</span><span id="cke_11_description" class="cke_button_label" aria-hidden="false"></span></a><a id="cke_12" class="cke_button cke_button__bulletedlist cke_button_off" href="javascript:void(&#39;Chèn/Xoá Danh sách không thứ tự&#39;)" title="Chèn/Xoá Danh sách không thứ tự" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_12_label" aria-describedby="cke_12_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(9,event);" onfocus="return CKEDITOR.tools.callFunction(10,event);" onclick="CKEDITOR.tools.callFunction(11,this);return false;"><span class="cke_button_icon cke_button__bulletedlist_icon" style="background-image:url(&#39;https://toidicode.com/public/ckeditor-basic/plugins/icons.png?t=H0CG&#39;);background-position:0 -528px;background-size:auto;">&nbsp;</span><span id="cke_12_label" class="cke_button_label cke_button__bulletedlist_label" aria-hidden="false">Chèn/Xoá Danh sách không thứ tự</span><span id="cke_12_description" class="cke_button_label" aria-hidden="false"></span></a><span class="cke_toolbar_separator" role="separator"></span><a id="cke_13" class="cke_button cke_button__outdent cke_button_disabled " href="javascript:void(&#39;Dịch ra ngoài&#39;)" title="Dịch ra ngoài" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_13_label" aria-describedby="cke_13_description" aria-haspopup="false" aria-disabled="true" onkeydown="return CKEDITOR.tools.callFunction(12,event);" onfocus="return CKEDITOR.tools.callFunction(13,event);" onclick="CKEDITOR.tools.callFunction(14,this);return false;"><span class="cke_button_icon cke_button__outdent_icon" style="background-image:url(&#39;https://toidicode.com/public/ckeditor-basic/plugins/icons.png?t=H0CG&#39;);background-position:0 -384px;background-size:auto;">&nbsp;</span><span id="cke_13_label" class="cke_button_label cke_button__outdent_label" aria-hidden="false">Dịch ra ngoài</span><span id="cke_13_description" class="cke_button_label" aria-hidden="false"></span></a><a id="cke_14" class="cke_button cke_button__indent cke_button_off" href="javascript:void(&#39;Dịch vào trong&#39;)" title="Dịch vào trong" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_14_label" aria-describedby="cke_14_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(15,event);" onfocus="return CKEDITOR.tools.callFunction(16,event);" onclick="CKEDITOR.tools.callFunction(17,this);return false;"><span class="cke_button_icon cke_button__indent_icon" style="background-image:url(&#39;https://toidicode.com/public/ckeditor-basic/plugins/icons.png?t=H0CG&#39;);background-position:0 -336px;background-size:auto;">&nbsp;</span><span id="cke_14_label" class="cke_button_label cke_button__indent_label" aria-hidden="false">Dịch vào trong</span><span id="cke_14_description" class="cke_button_label" aria-hidden="false"></span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_15" class="cke_toolbar" aria-labelledby="cke_15_label" role="toolbar"><span id="cke_15_label" class="cke_voice_label">Liên kết</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_16" class="cke_button cke_button__link cke_button_off" href="javascript:void(&#39;Chèn/Sửa liên kết&#39;)" title="Chèn/Sửa liên kết (Ctrl+L)" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_16_label" aria-describedby="cke_16_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(18,event);" onfocus="return CKEDITOR.tools.callFunction(19,event);" onclick="CKEDITOR.tools.callFunction(20,this);return false;"><span class="cke_button_icon cke_button__link_icon" style="background-image:url(&#39;https://toidicode.com/public/ckeditor-basic/plugins/icons.png?t=H0CG&#39;);background-position:0 -456px;background-size:auto;">&nbsp;</span><span id="cke_16_label" class="cke_button_label cke_button__link_label" aria-hidden="false">Chèn/Sửa liên kết</span><span id="cke_16_description" class="cke_button_label" aria-hidden="false">Keyboard shortcut Ctrl+L</span></a><a id="cke_17" class="cke_button cke_button__unlink cke_button_disabled " href="javascript:void(&#39;Xoá liên kết&#39;)" title="Xoá liên kết" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_17_label" aria-describedby="cke_17_description" aria-haspopup="false" aria-disabled="true" onkeydown="return CKEDITOR.tools.callFunction(21,event);" onfocus="return CKEDITOR.tools.callFunction(22,event);" onclick="CKEDITOR.tools.callFunction(23,this);return false;"><span class="cke_button_icon cke_button__unlink_icon" style="background-image:url(&#39;https://toidicode.com/public/ckeditor-basic/plugins/icons.png?t=H0CG&#39;);background-position:0 -480px;background-size:auto;">&nbsp;</span><span id="cke_17_label" class="cke_button_label cke_button__unlink_label" aria-hidden="false">Xoá liên kết</span><span id="cke_17_description" class="cke_button_label" aria-hidden="false"></span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_18" class="cke_toolbar" aria-labelledby="cke_18_label" role="toolbar"><span id="cke_18_label" class="cke_voice_label">Chèn</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_19" class="cke_button cke_button__insertpre cke_button_off" href="javascript:void(&#39;Insert code snippet&#39;)" title="Insert code snippet" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_19_label" aria-describedby="cke_19_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(24,event);" onfocus="return CKEDITOR.tools.callFunction(25,event);" onclick="CKEDITOR.tools.callFunction(26,this);return false;"><span class="cke_button_icon cke_button__insertpre_icon" style="background-image:url(&#39;https://toidicode.com/public/ckeditor-basic/plugins/insertpre/icons/insertpre.png?t=H0CG&#39;);background-position:0 0px;background-size:16px;">&nbsp;</span><span id="cke_19_label" class="cke_button_label cke_button__insertpre_label" aria-hidden="false">Insert code snippet</span><span id="cke_19_description" class="cke_button_label" aria-hidden="false"></span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_20" class="cke_toolbar cke_toolbar_last" aria-labelledby="cke_20_label" role="toolbar"><span id="cke_20_label" class="cke_voice_label">about</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_21" class="cke_button cke_button__about cke_button_off" href="javascript:void(&#39;Thông tin về CKEditor&#39;)" title="Thông tin về CKEditor" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_21_label" aria-describedby="cke_21_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(27,event);" onfocus="return CKEDITOR.tools.callFunction(28,event);" onclick="CKEDITOR.tools.callFunction(29,this);return false;"><span class="cke_button_icon cke_button__about_icon" style="background-image:url(&#39;https://toidicode.com/public/ckeditor-basic/plugins/icons.png?t=H0CG&#39;);background-position:0 0px;background-size:auto;">&nbsp;</span><span id="cke_21_label" class="cke_button_label cke_button__about_label" aria-hidden="false">Thông tin về CKEditor</span><span id="cke_21_description" class="cke_button_label" aria-hidden="false"></span></a></span><span class="cke_toolbar_end"></span></span></span></span><div id="cke_1_contents" class="cke_contents cke_reset" role="presentation" style="height: 200px;"><iframe src="./Hàm preg_match trong PHP - Toidicode.com_files/saved_resource.html" frameborder="0" class="cke_wysiwyg_frame cke_reset" title="Bộ soạn thảo văn bản có định dạng, commentt" tabindex="0" allowtransparency="true" style="width: 100%; height: 100%;"></iframe></div></div></div></p><p class="comment-form-author"><label for="author">Name<span class="required"> *</span></label> <input id="cname" name="name" type="text" placeholder="Nhập vào tên..." size="30" required="true" value=""></p><p class="comment-form-email"><label for="email">Email<span class="required"> *</span></label> <input id="cemail" name="email" type="text" value="" size="30" placeholder="Nhập email..." required="true"></p><p class="comment-form-url"><label for="url">Website</label><input id="cwebsite" name="url" type="text" value="" size="30" placeholder="website..."></p><p class="comment-captcha"><label for="captcha">Captcha <span class="required"> *</span></label><img src="./Hàm preg_match trong PHP - Toidicode.com_files/saved_resource" alt="captcha" class="captcha-img" onclick="this.setAttribute(&#39;src&#39;,&#39;https://toidicode.com/captcha/?key=0.6521322776551881&#39;)"><input id="ccaptcha" name="captcha" type="text" placeholder="captcha..." required="true"></p><p class="form-submit"><input name="submit" type="submit" id="send-comment" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="182" id="cpostid"><input type="hidden" name="comment_parent" id="cparent" value="0"></p><input type="hidden" name="type" class="antispam-control antispam-control-a" value="post"></form><p></p></div></div>
+                <script type="text/javascript">
+                    var config = {
+                        url: 'https://toidicode.com/',
+                        id: 182,
+                        type: 'post',
+                        token: '9ee25090bbe9906a9b1934350066eb7f'
+                    };
+                </script>
+                <script src="./Hàm preg_match trong PHP - Toidicode.com_files/ckeditor.js.tải xuống" type="text/javascript" charset="utf-8"></script>
+                <script src="./Hàm preg_match trong PHP - Toidicode.com_files/comment.min.js.tải xuống" type="text/javascript" charset="utf-8"></script>
+
+            </div>
+            <aside id="sidebar" class="sidebar right current">
+                <div id="" class="" style="margin-bottom: 30px; overflow-x: : hidden;">
+	<h4 class="widget-title">QC</h4>
+
+	<!--     bai-viet
+		head-widget -->
+		<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-8768260344279113" data-ad-slot="4493528180"></ins>
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>                <div id="" class="widget list-news  current">
+    <h4 class="widget-title">CÙNG DANH MỤC</h4>
+    <ul class="current">
+                    <li><a href="https://toidicode.com/php-regular-expression-la-gi-180.html" title="PHP Regular Expression là gì?">Bài 1: PHP Regular Expression là gì?</a></li>
+                    <li><a href="https://toidicode.com/cac-quy-tac-regular-expression-trong-php-181.html" title="Các quy tắc Regular Expression trong PHP">Bài 2: Các quy tắc Regular Expression trong PHP</a></li>
+                    <li class="current"><a href="https://toidicode.com/ham-pregmatch-trong-php-182.html" title="Hàm preg_match trong PHP">Bài 3: Hàm preg_match trong PHP</a></li>
+                    <li><a href="https://toidicode.com/ham-pregquote-trong-php-183.html" title="Hàm preg_quote trong PHP">Bài 4: Hàm preg_quote trong PHP</a></li>
+                    <li><a href="https://toidicode.com/ham-pregreplace-trong-php-184.html" title="Hàm preg_replace trong PHP">Bài 5: Hàm preg_replace trong PHP</a></li>
+                    <li><a href="https://toidicode.com/ham-pregmatchall-trong-php-185.html" title="Hàm preg_match_all trong PHP">Bài 6: Hàm preg_match_all trong PHP</a></li>
+                    <li><a href="https://toidicode.com/ham-pregreplacecallback-trong-php-186.html" title="Hàm preg_replace_callback trong PHP">Bài 7: Hàm preg_replace_callback trong PHP</a></li>
+            </ul>
+</div>
+                <div id="email-subscribers-2" class="widget widget_text elp-widget"><h5 class="widget-title">ĐĂNG KÝ NHẬN BÀI QUA EMAIL</h5>
+    <script src="./Hàm preg_match trong PHP - Toidicode.com_files/ajaxmail.min.js.tải xuống"></script>
+    <div>
+     <div class="es_msg"><font color="red" id="es_msg"></font></div>
+     <div class="es_msgc"><font color="green" id="es_msgc"></font></div>
+     <div class="es_lablebox">Email *</div>
+     <div class="es_textbox">
+        <form action="javascript:void(0)" onsubmit="subMail(&#39;9ee25090bbe9906a9b1934350066eb7f&#39;)" autocomplete="off">
+            <input class="es_textbox_class" type="email" name="email_feild" id="email_feild" onkeypress="if(event.keyCode==13) submail()" placeholder="Mail..." minlength="6" maxlength="30" required="">
+        </form></div>
+        <div class="es_button" style="margin-top: 5px;">
+            <input class="es_textbox_button" name="es_txt_button" id="es_txt_button" value="Subscribe" type="submit">
+       
+   </div>
+</div>
+</div>                <div class="widget widget_text elp-widget">
+	<h4 class="widget-title">Tools</h4>
+		<ul>
+			<li><a href="https://chrome.google.com/webstore/detail/toidicodecom-extension/geinliihnjpahdmepmimcjjendjbgijm?hl=vi" target="_bank" title="Toidicode extension">Toidicode Extension</a></li>
+			<li><a href="https://toidicode.com/tools/face-transform/" target="_bank" title="Face transform">Face Transform</a></li>
+			<li><a href="https://toidicode.com/tools/youtube/" target="_bank" title="Download Video From Youtube">Download Video From Youtube</a></li>
+			<li><a href="https://chrome.google.com/webstore/detail/youtube-downloader/glpiomfohibbgeedfmcnahlanpehojdd/reviews" target="_bank" title="Face transform">Youtube Downloader</a></li>
+		</ul>
+</div>
+<div id="" class="">
+	<h4 class="widget-title">FANPAGE</h4>
+	<div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/toidicode/" data-tabs="false" data-width="300" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=false&amp;app_id=610336262482409&amp;container_width=300&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Ftoidicode%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=false&amp;tabs=false&amp;width=300"><span style="vertical-align: bottom; width: 300px; height: 196px;"><iframe name="f3342016de3d744" width="300px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" title="fb:page Facebook Social Plugin" src="./Hàm preg_match trong PHP - Toidicode.com_files/page.html" style="border: none; visibility: visible; width: 300px; height: 196px;" class=""></iframe></span></div>
+</div>                <!-- ads -->
+<div id="" class="widget widget_text elp-widget vce-sticky affix-top">
+    <!-- fix-top -->
+    <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-8768260344279113" data-ad-slot="9202929389"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>            </aside>
+            <script type="text/javascript">
+                addCurrentLink();
+            </script>
+        </div>
+        
+    <footer id="footer" class="site-footer">
+        <div class="container">
+            <div class="container-fix">
+                <div class="bit-1">
+                    <a href="https://toidicode.com/"><img src="./Hàm preg_match trong PHP - Toidicode.com_files/logo.png" alt="toidicode.com"></a>
+                </div>
+                <div class="bit-3">
+                    <h4 style="color: white;border-bottom:1px solid #646a70 ">
+                        <div style="border-bottom:1px solid #2a2e32">Giới thiệu</div>
+                    </h4>
+                    <div style="font-size: 14px">Toidicode.com được tạo ra nhằm mục đích chia sẻ các tutorial về lập
+                        trình nói chung và lập trình Web nói riêng.
+                        <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="./Hàm preg_match trong PHP - Toidicode.com_files/80x15.png"></a></p>
+                    </div>
+                </div>
+                <div class="bit-3">
+                    <h4 style="color: white;border-bottom:1px solid #646a70 ">
+                        <div style="border-bottom:1px solid #2a2e32">Liên kết</div>
+                    </h4>
+                    <div style="font-size: 14px">
+                        <p><a style="color: white" href="http://ttheme.net/" title="visited is Free" target="_bank">Ttheme.net</a>
+                        </p>
+                        <p><a style="color: white" href="http://freetuts.net/" title="freetuts.net" target="_bank">Freetuts.net</a>
+                        </p>
+                        <p><a style="color: white" href="http://kiemtienonline360.com/" title="kiemtienonline360.com" target="_bank">Blog Kiếm Tiền Online</a></p>
+                    </div>
+                </div>
+                <div class="bit-3">
+                    <h4 style="color: white;border-bottom:1px solid #646a70 ">
+                        <div style="border-bottom:1px solid #2a2e32">Liên hệ</div>
+                    </h4>
+                    <div style="font-size: 14px">
+                        Điện thoại: +849 3622 7680
+                        <br> Email: <a href="mailto:toidicode.com@gmail.com?subject=Contact" style="color: #f90">toidicode.com@gmail.com</a>
+                        <br> Copyright © 2017. by <a href="https://toidicode.com/" style="color: #f90">Toidicode.com</a>
+                        <p>
+                            <a href="http://www.dmca.com/Protection/Status.aspx?ID=21f417fa-aaee-437b-aa8b-2145d3fbd02e&amp;refurl=https://toidicode.com/ham-pregmatch-trong-php-182.html" title="DMCA.com Protection Status" class="dmca-badge" target="_blank"> <img src="./Hàm preg_match trong PHP - Toidicode.com_files/dmca-badge-w100-5x1-02.png" alt="DMCA.com Protection Status"></a>
+                            <script src="./Hàm preg_match trong PHP - Toidicode.com_files/DMCABadgeHelper.min.js.tải xuống">
+                            </script>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height:5px;">
+            <div style="width:25%;background:#af472d;height:100%;float:left"></div>
+            <div style="width:25%;background:#c6ac27;height:100%;float:left"></div>
+            <div style="width:25%;background:#207347;height:100%;float:left"></div>
+            <div style="width:25%;background:#8f99b6;height:100%;float:left"></div>
+        </div>
+        <div id="fra" style="width: 0px;height: 0px;overflow: hidden;"></div>
+    </footer>
+</div>
+</div>
+<a href="javascript:void(0)" id="back-top" style="bottom: 57px; display: inline;"><i class="fa fa-angle-up"></i></a>
+<script>
+    console.log("%c%s", 'color:red;font-size:20pt;font-weight:bold;', 'Tab này không dành cho bạn đâu, ấn f12 để tắt đi');
+</script>
+<script src="./Hàm preg_match trong PHP - Toidicode.com_files/highlight.pack.js.tải xuống"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="./Hàm preg_match trong PHP - Toidicode.com_files/custom.js.tải xuống"></script>
+
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '610336262482409',
+            xfbml: true,
+            version: 'v2.7'
+        });
+    };
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/vi_VN/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window,
+        document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1006627516070863'); // Insert your pixel ID here.
+    fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+               src="https://www.facebook.com/tr?id=1006627516070863&ev=PageView&noscript=1"/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+<!-- analytics-->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-84078941-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<!-- end analytics-->
+<script src="./Hàm preg_match trong PHP - Toidicode.com_files/OneSignalSDK.js.tải xuống" async=""></script>
+<script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(["init", {
+        appId: "6f7bb3d7-7a68-49e2-8482-64665bc9c1b3",
+        autoRegister: true,
+        notifyButton: {
+            enable: false /* Set to false to hide */
+        },
+        welcomeNotification: {
+            "title": "Toidicode.com",
+            "message": "Cảm ơn bạn đã đăng ký nhận thông báo từ chúng tôi!",
+            "url": "https://toidicode.com"
+        }
+    }]);
+</script>
+
+
+
+<div id="sidr-main" class="sidr left"><div class="sidr-inner">
+                    <ul id="sidr-id-vce_main_navigation_menu" class="sidr-class-nav-menu">
+                        <li id="sidr-id-menu-item-642" class="sidr-class-menu-item sidr-class-menu-item-type-custom"><a href="https://toidicode.com/">HOME</a>
+                        </li>
+                        <li class="sidr-class-menu-item sidr-class-menu-item-type-custom sidr-class-menu-item-has-children"><a href="https://toidicode.com/script-language">SCRIPT LANGUAGE</a><ul class="sidr-class-sub-menu"><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy sidr-class-menu-item-has-children"><a href="https://toidicode.com/hoc-javascript">JAVASCRIPT</a><ul class="sidr-class-sub-menu"><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-javascript-co-ban">JAVASCRIPT CƠ BẢN</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-jquery-js">JQUERY</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-angularjs">ANGULARJS</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-vuejs-co-ban">VUEJS</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy sidr-class-menu-item-has-children"><a href="https://toidicode.com/hoc-nodejs">NODE.JS</a><ul class="sidr-class-sub-menu"><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/nodejs-co-ban">NODE.JS CƠ BẢN</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/express-framework">EXPRESS FRAMEWORK</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/nodejs-mysql">NODE.JS &amp; MYSQL</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/nodejs-mongodb">NODE.JS &amp; MONGODB</a></li></ul><span class="vce-menu-parent fa fa-angle-down"></span></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-ecmascript">ECMASCRIPT</a></li></ul><span class="vce-menu-parent fa fa-angle-down"></span></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy sidr-class-menu-item-has-children"><a href="https://toidicode.com/tu-hoc-php">PHP</a><ul class="sidr-class-sub-menu"><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/php-co-ban">PHP CƠ BẢN</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/php-huong-doi-tuong">PHP HƯỚNG ĐỐI TƯỢNG</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/php-standards">PHP STANDARDS</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-laravel">LARAVEL</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-codeigniter">CODEIGNITER</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/php-mysql">PHP&amp;MYSQL</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/php-optimize">PHP OPTIMIZE &amp; SCURITY</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-php7">PHP 7X</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/php-tip">PHP TIP</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/php-regular-expression">REGULAR EXPRESSION</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/php-mongodb">PHP&amp;MONGODB</a></li></ul><span class="vce-menu-parent fa fa-angle-down"></span></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy sidr-class-menu-item-has-children"><a href="https://toidicode.com/hoc-python">PYTHON</a><ul class="sidr-class-sub-menu"><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/python-co-ban">PYTHON CƠ BẢN</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-python-nang-cao">PYTHON NÂNG CAO</a></li></ul><span class="vce-menu-parent fa fa-angle-down"></span></li></ul><span class="vce-menu-parent fa fa-angle-down"></span></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy sidr-class-menu-item-has-children"><a href="https://toidicode.com/computer-language">COMPUTER LANGUAGE</a><ul class="sidr-class-sub-menu"><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-csharp">C#</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-java">JAVA</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-android">ANDROID</a></li></ul><span class="vce-menu-parent fa fa-angle-down"></span></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy sidr-class-menu-item-has-children"><a href="https://toidicode.com/hoc-database">DATABASE</a><ul class="sidr-class-sub-menu"><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-sql">SQL</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-mongodb">MONGODB</a></li></ul><span class="vce-menu-parent fa fa-angle-down"></span></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy sidr-class-menu-item-has-children"><a href="https://toidicode.com/#">MORE</a><ul class="sidr-class-sub-menu"><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-html">HTML</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy sidr-class-menu-item-has-children"><a href="https://toidicode.com/hoc-css">CSS</a><ul class="sidr-class-sub-menu"><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-css-can-ban">CSS</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-css3">CSS3</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/css-reference">CSS REFERENCE</a></li></ul><span class="vce-menu-parent fa fa-angle-down"></span></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/linh-tinh">LINH TINH</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/hoc-marketing-online">MARKETING ONLINE</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/dinh-nghia">ĐỊNH NGHĨA</a></li><li class="sidr-class-menu-item sidr-class-menu-item-type-taxonomy"><a href="https://toidicode.com/sublime-text">SUBLIME TEXT</a></li></ul><span class="vce-menu-parent fa fa-angle-down"></span></li>
+                        <li class="sidr-class-search-header-wrap">
+                            <a class="sidr-class-search_header" href="javascript:void(0)"><i class="sidr-class-fa sidr-class-fa-search"></i></a>
+                            <ul class="sidr-class-search-header-form-ul">
+                                <li>
+                                    <form class="sidr-class-search-header-form" action="https://toidicode.com/tim-kiem.html" method="get">
+                                        <input name="q" class="sidr-class-search-input" size="20" type="text" onfocus="(this.value == &#39;Nhập nội dung tìm kiếm ....&#39;) &amp;&amp; (this.value = &#39;&#39;)" onblur="(this.value == &#39;&#39;) &amp;&amp; (this.value = &#39;Nhập nội dung tìm kiếm ....&#39;)" placeholder="Nhập nội dung tìm kiếm ....">
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div></div><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Hàm preg_match trong PHP - Toidicode.com_files/2VRzCA39w_9.html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><iframe src="./Hàm preg_match trong PHP - Toidicode.com_files/webPushAnalytics.html" style="display: none;"></iframe></body></html>

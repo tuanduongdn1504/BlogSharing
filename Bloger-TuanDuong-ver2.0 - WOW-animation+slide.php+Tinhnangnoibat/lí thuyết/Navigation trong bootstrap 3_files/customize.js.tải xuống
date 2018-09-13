@@ -1,0 +1,542 @@
+function addCart(obj){
+    var course_id = $(obj).attr('course_id');
+    $.ajax({
+        type: 'POST',
+        url: '/course_action/add_to_cart',
+        data: {
+            'Course_id': course_id
+        },
+        success: function(){
+            $('a#cart').popover();   
+        }
+    });
+}
+
+function load_more_note(){
+    $.ajax({
+        type : 'GET',
+        url : '/course_action/get_course_notes',
+        data: {
+            'course_id': id,
+            'track_click': 0,
+            'perpage': 1,
+        },
+        success: function(message){
+            $('div#4a').append(message);
+        }
+    });
+}
+
+function submit_coupon(){
+    var coupon_code = '';
+    var coupon_code_1 = $('#coupon_code').val();
+    if(coupon_code_1.length !== 0 ){
+        coupon_code = coupon_code_1;
+    }
+    var coupon_code_2 = $('#coupon_code_mb').val();
+    if(coupon_code_2.length !== 0 ){
+        coupon_code = coupon_code_2;
+    }
+    var course_id = $('#course_id').val();
+    var price = $('.price').val();
+    if (coupon_code != '') {
+        $.ajax({
+            type: 'POST',
+            url: '/course_action/check_coupon',
+            data: {
+                'coupon_code': coupon_code,
+                'price': price,
+                'course_id': course_id
+            },
+            success: function(data) {
+                if (data != 'false') {
+                    if (data == 'true') {
+                        $('.popup_coupon_true').bPopup({
+                        });
+                    } else {
+                        $('.error_message').hide();
+                        var arr = data.split('-');
+                        $('.sell-price').html(arr[1]);
+                        if($('.price .old-price').length){
+                            //co class roi
+                            $('.old-price').html(price + '<sup>đ</sup>');
+                        } else {
+                            //chưa co class này
+                            $('.price').append( '<span class="old-price">'+ price + '<sup>đ</sup></span>');
+                        }
+                        if($('.price .discount').length){
+                            //co class roi
+                            $('.discount').html('- '+arr[0]+'%');
+                        } else {
+                            //chưa co class này
+                            $('.price').append('<span class="discount">-'+arr[0]+'%'+ '</span>');
+                        }
+                        
+                        //$('.discount').show();
+                        //$('.old-price').show();
+                    }
+                } else {
+                    $('.error_message').show();
+                }
+            }
+        });
+    }
+}
+/*
+function randRange(data) {
+    var newTime = data[Math.floor(data.length * Math.random())];
+    return newTime;
+}
+
+var timer = setInterval(pushNotify, 1000);
+// 1000 = Initial timer when the page is first loaded
+
+function pushNotify() {
+    var timeArray = new Array(1000, 3000, 1500, 2500, 20000, 6000, 8000, 15000);
+    var num = Math.ceil(Math.random()*20);
+    $.notify({
+      title: '',
+      icon: 'fa fa-info-circle',
+      message: num + ' học viên vừa <b>đăng ký thành công</b> khóa học trên Unica.vn'
+    },{
+      type: 'success',
+        animate: {
+        enter: 'animated fadeInUp',
+        exit: 'animated fadeOutRight'
+      },
+      placement: {
+        from: "bottom",
+        align: "left"
+      },
+      offset: 20,
+      spacing: 10,
+      z_index: 1031,
+    });
+    clearInterval(timer);
+    
+    timer = setInterval(pushNotify, randRange(timeArray));
+}
+*/
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+    /*
+    var course_id = $('#course_id').val();
+    $.ajax({
+        type: 'POST',
+        url: '/course_action/get_discussion',
+        data: {
+            'course_id': course_id,
+        },
+        success: function (data) {
+            $('#thaoluan').append(data);
+        }
+    });
+    */
+    var course_id = $('#course_id').val();
+    $.ajax({
+        type: 'GET',
+        url: '/course_action/get_course_notes',
+        data: {
+            'course_id': course_id,
+        },
+        success: function (data) {
+            $('#ghichep').append(data);
+        }
+    });
+    
+    $('.loop').owlCarousel({
+        center: true,
+        items:1,
+        loop:false,
+        margin:0,
+        responsive:{
+            600:{
+                items:4
+            }
+        }
+    });
+    $('#contact_register').click(function(){
+        var fullname =  $('#exampleInputName2').val();
+        var email =  $('#mce-EMAIL-call').val();
+        if(fullname != '' && email != ''){
+            $.ajax({
+                type: 'POST',
+                url: '/course_action/index_form',
+                data: {
+                      'fullname': fullname,
+
+                    'email': email,
+                },
+                beforeSend: function() {
+                    // setting a timeout
+                    $('#contact_register').html('<img src="/icon/loader.gif"/> Đang xử lý');
+                },
+                success: function(data) {
+                    if(data == 'true'){
+                        $('#contact_register').html('<img src="/icon/success.png" width="15px"/> Thành công!');
+                    } else {
+                        $('#contact_register').html('<img src="/icon/delete.png" width="15px"/> Thất bại!');
+                    }
+                }
+            });
+        }
+    });
+    $(window).scroll(function() {
+        if ($(this).scrollTop() >= 400) {
+            $('.menufix_detail').stop().animate({'top': '0'}, 200);
+        } else {
+            $('.menufix_detail').stop().animate({'top': '-70px'}, 200);
+        }
+    });
+    $('.dropdown-input-coupon').hide();
+    $('.dropdown-coupon').click(function(){
+        $('.dropdown-input-coupon').show();
+    });
+    /*
+	$(".owl-carousel").owlCarousel({
+		responsive:{
+	        0:{
+	            items:1
+	        },
+	        600:{
+	            items:3
+	        },
+	        1000:{
+	            items:3
+	        }
+	    },
+        navigation: false,
+	});
+    */
+    $(".danhsachgiangvien .danhsach").owlCarousel({
+        items: 4,
+        //itemsCustom: [[0, 1], [481, 2], [750, 3], [936, 4]],
+        navigation: true,
+        navigationText: ["", ""],
+        pagination: false,
+        //paginationNumbers : false,
+        autoPlay: true,
+        stopOnHover: false,
+        slideSpeed: 400,
+        paginationSpeed: 600,
+        rewindSpeed: 800,
+    });
+    $("#content .bancothehocgi ul").owlCarousel({
+        items: 4,
+        //itemsCustom: [[0, 1], [361, 2], [481, 3], [769, 4], ],
+        navigation: false,
+        navigationText: ["", ""],
+        pagination: false,
+        //paginationNumbers : false,
+        autoPlay: true,
+        stopOnHover: false,
+        slideSpeed: 200,
+        paginationSpeed: 600,
+        rewindSpeed: 800,
+    });
+
+	$(".panel-heading h4 a").click(function() {
+		$(this).find('i').toggleClass("fa-plus-square fa-minus-square");
+	});
+
+    $('.close_cart').click(function(){
+        $('.cart_show').hide(1000);
+    });
+	
+	$('body').on('click', '.btn-add_cart', function(){
+		var course_id = $(this).attr('data-id');
+		var c_id = $(this).attr('data-cid');
+		$.ajax({
+            type: 'POST',
+            url: '/course_action/add_to_cart',
+            data: {
+                'Course_id': course_id
+            },
+            beforeSend: function() {
+                // setting a timeout
+                //+c_id
+                $('.cid_'+c_id).html('<img src="/icon/loader.gif"/> Đang xử lý');
+            },
+            success: function(data) {
+                $('.cid_'+c_id).html('<img src="/icon/success.png" width="15px"/> Đã thêm vào giỏ ');
+                $('.badge').html(data);
+                $('.number-course').html(data);
+                $('.nbtet').html(data);
+
+                //xử lý thêm sản phẩm vào giỏ lần đầu
+                //var number = (data > 1) ? (parseInt(data) - 1) * 5 : 0;
+                //if(number > 50){
+                    //$('.discount_p_num').html("Bạn được mức giảm tối đa 50%");
+                //} else {
+                    //$('.discount_p_num').html("Bạn được giảm "+ number+ "%. Mua thêm để được giảm "+ (number + 5)+ "%");
+                //}
+                //$('.cart_show').show("slide");
+                //$('.cart_show').attr('style','display: block !important');
+                //$('.cart_show').css("display","block !important");
+                //setTimeout(function(){ $('.cart_show').hide("slow"); }, 3000);
+            }
+        });
+	});
+	
+    /* $('.btn-add_cart').click(function(){
+      var course_id = $(this).attr('data-id');
+      var c_id = $(this).attr('data-cid');
+      $.ajax({
+            type: 'POST',
+            url: '/course_action/add_to_cart',
+            data: {
+                'Course_id': course_id
+            },
+            beforeSend: function() {
+                // setting a timeout
+                //+c_id
+                $('.cid_'+c_id).html('<img src="/icon/loader.gif"/> Đang xử lý');
+            },
+            success: function(data) {
+                $('.cid_'+c_id).html('<img src="/icon/success.png" width="15px"/> Đã thêm vào giỏ ');
+                $('.badge').html(data);
+                $('.number-course').html(data);
+                $('.nbtet').html(data);
+                $('.cart_show').show();   
+            }
+        });  
+    });*/
+	
+	$('#add_cart').click(function(){
+	 	var course_id = $('#course_id').val();
+        $.ajax({
+            type: 'POST',
+            url: '/course_action/add_to_cart',
+            data: {
+                'Course_id': course_id
+            },
+            beforeSend: function() {
+                // setting a timeout
+                $('#add_cart').html('<img src="/icon/loader.gif"/> Đang xử lý');
+            },
+            success: function(data) {
+                $('#add_cart').html('<img src="/icon/success.png" width="15px"/> Đã thêm vào giỏ ');
+                $('.badge').html(data);
+                $('.cart_show').show();   
+            }
+        });
+    });
+    $('#add_cart_mobile').click(function(){
+        var course_id = $('#course_id').val();
+        $.ajax({
+            type: 'POST',
+            url: '/course_action/add_to_cart',
+            data: {
+                'Course_id': course_id
+            },
+            beforeSend: function() {
+                // setting a timeout
+                $('#add_cart_mobile').html('<img src="/icon/loader.gif"/> Đang xử lý');
+            },
+            success: function(data) {
+                $('#add_cart_mobile').html('<img src="/icon/success.png" width="15px"/> Đã thêm vào giỏ ');
+                $('.badge').html(data);
+                $('.cart_show').show();   
+            }
+        });
+    });
+    $('body').on('click', '.buoc3 .hinhthucthanhtoan li', function() {
+    $('.buoc3 .hinhthucthanhtoan li').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $('body').on('click', '.buoc3 .hinhthucthanhtoan li#hinhthuckhac', function() {
+        $('.buoc3 .hinhthucthanhtoan li.etc').stop().slideToggle(200);
+        $('.sh1').hide();
+        $('.sh2').hide();
+    });
+    $('body').on('click', '.buoc3 .hinhthucthanhtoan li#atm', function() {
+        $('.buoc3 .hinhthucthanhtoan .atm').stop().slideToggle(200);
+        $('.sh1').hide();
+        $('.sh2').hide();
+        $('.atm').show();
+    });
+    $('body').on('click', '.buoc3 .hinhthucthanhtoan li#visa', function() {
+        $('.buoc3 .hinhthucthanhtoan .visa').stop().slideToggle(200);
+        $('.sh1').hide();
+        $('.sh2').hide();
+        $('.visa').show();
+    });
+
+    $('body').on('click', '.buoc3 .hinhthucthanhtoan li#cod-toggle', function() {
+        $('.buoc3 .hinhthucthanhtoan .cod-toggle').stop().slideToggle(200);
+        $('.sh1').hide();
+        $('.sh2').hide();
+        $('.cod-toggle').show();
+        $('#cod-toggle').show();
+    });
+
+    $('body').on('click', '.buoc3 .hinhthucthanhtoan li#nganluong', function() {
+        $('.hinhthucthanhtoan .nganluong').show();
+        //$('.hinhthucthanhtoan .nganluong').stop().slideToggle(200);
+        $('.sh1').hide();
+        $('.sh2').hide();
+        $('.nganluong').show();
+    });
+    $('body').on('click', '.buoc3 .hinhthucthanhtoan li#tranfer-toggle', function() {
+        
+        $('.hinhthucthanhtoan .tranfer-toggle').show();
+        //$('.hinhthucthanhtoan .nganluong').stop().slideToggle(200);
+        $('.sh1').hide();
+        $('.sh2').hide();
+        $('select[name=district]').removeAttr('required');
+        $('input[name=address]').removeAttr('required');
+        $('.tranfer-toggle').show();
+    });
+
+    $('body').on('click', '.buoc3 .hinhthucthanhtoan li#cod-toggle', function() {
+        
+        $('.hinhthucthanhtoan .cod-toggle').show();
+        //$('.hinhthucthanhtoan .nganluong').stop().slideToggle(200);
+        $('.sh1').hide();
+        $('.sh2').hide();
+        //$('select[name=district]').removeAttr('required');
+        //$('input[name=address]').removeAttr('required');
+        $('.cod-toggle').show();
+    });
+
+    $('body').on('click', '.buoc3 .hinhthucthanhtoan li#paypal', function() {
+        $('.hinhthucthanhtoan .paypal').show();
+        $('.sh1').hide();
+        $('.sh2').hide();
+        $('.paypal').show();
+    });
+    $('body').on('click', '.buoc3 .hinhthucthanhtoan li#inet', function() {
+        $('.hinhthucthanhtoan .inet').show();
+        $('.sh1').hide();
+        $('.sh2').hide();
+        $('.inet').show();
+    });
+
+
+    $('body').on('click', '.buoc3 .hinhthucthanhtoan li#thecao', function() {
+        $('.hinhthucthanhtoan .thecao').show();
+        $('.sh1').hide();
+        $('.sh2').hide();
+        $('.thecao').show();
+    });
+    //xoa khoi gio hang
+    $('.del_cart').click(function(){
+        var r = confirm("Bạn chắc chắn muốn bỏ khóa học này chứ?");
+        if (r == true) {
+            var id = $(this).attr('id');
+            var price_sale = $(this).attr('price_sale');
+            var discount = $(this).attr('discount');
+            var type = $(this).attr('type');
+            $.ajax({
+                type : 'POST',
+                url : '/course_action/del_cart',
+                data: {
+                    'id': id,
+                    'price_sale': price_sale,
+                    'discount': discount,
+                    'type': type,
+                },
+                success: function(message){
+                    var res = message.split("-");
+                    $('div#'+id).remove();
+                    $('a#carts b').html(res[0]);
+                    $('.tongtien').html(res[1]);
+                    if(res[1] == '0 đ'){
+                        window.location.reload();
+                    }
+                }
+            });
+        } else {
+            
+        }
+    });
+
+    $('#danhgia').click(function(){
+        var n = $( "div#3a" ).text().length;
+        if(n == 0){
+            var id = $('#courseid').val();
+            $.ajax({
+                type : 'POST',
+                url : '/course_action/get_rates',
+                data: {
+                    'course_id': id,
+                },
+                success: function(message){
+                    $('div#3a').append(message);
+                }
+            });
+        }
+    });
+
+    $('#ghichep').click(function(){
+        var n = $("div#4a").text().length;
+        if(n == 0){
+            var id = $('#courseid').val();
+            $.ajax({
+                type : 'GET',
+                url : '/course_action/get_course_notes',
+                data: {
+                    'course_id': id,
+                    'track_click': 0,
+                    'perpage': 1,
+                },
+                success: function(message){
+                    $('div#4a').append(message);
+                }
+            });
+        }
+    });
+
+    $('#new').click(function(){
+        var n = $("div#tab2").text().length;
+        if(n == 0){
+            $.ajax({
+                type : 'POST',
+                url : '/course_action/get_course_new',
+                data: {
+                },
+                success: function(message){
+                    $('div#tab2').append(message);
+                    $('.home_more').attr('href','/new');
+                }
+            });
+        }
+    });
+
+    $('#sale').click(function(){
+        var n = $("div#tab4").text().length;
+        if(n == 0){
+            $.ajax({
+                type : 'POST',
+                url : '/course_action/get_course_sale',
+                data: {
+                },
+                success: function(message){
+                    $('div#tab4').append(message);
+                    $('.home_more').attr('href','/dang-khuyen-mai');
+                }
+            });
+        }
+    });
+
+    $('#hot').click(function(){
+        $('.home_more').attr('href','/khoa-hoc-noi-bat');
+    });
+
+    $('.call_me_now').click(function(){
+        var id = $(this).attr('data-id');
+        $.ajax({
+            type : 'POST',
+            url : '/course_action/call_me_now',
+            data: {
+                'id' : id
+            },
+            success: function(message){
+                $('div#tab4').append(message);
+                $('.call_me_now').html('UNICA sẽ gọi điện cho bạn trong vòng 1 đến 2 phút...');
+            }
+        });
+    });
+    
+});

@@ -1,0 +1,118 @@
+var upload = {};
+upload.staticID = 0;
+
+upload.remove = function(obj, id) {
+    var resp = confirm("Bạn chắc chắn muốn xóa chứ ? ");
+    if (resp) {
+        $.ajax({
+            url: '/upload/remove',
+            type: "POST",
+            data: {id: id},
+            success: function(result) {
+                if (result.success) {
+                    $(obj).parent().remove();
+                }
+            }
+        });
+    }
+};
+
+$(document).ready(function() {
+    if (window.File && window.FileList && window.FileReader) {
+        $('body').on('change', '.file-upload', function(e) {
+            e.preventDefault();
+
+            var obj = $(this);
+            var parents = obj.parents('.bai1').attr('data-id');
+
+            var files = null;
+            var data_form = null;
+
+            files = e.target.files;
+            data_form = new FormData();
+            $.each(files, function(key, value) {
+                data_form.append('file', value);
+            });
+
+            if (files != '' && typeof files != 'undefined' && files.length != 0) {
+                var nanobar = new Nanobar({
+                    color: 'blue'
+                });
+                data_form.append('courseId', $('#course_id').val());
+                data_form.append('lessionID', parents);
+                $.ajax({
+                    url: '/upload/upload',
+                    type: "POST",
+                    data: data_form,
+                    beforeSend: function(xhr) {
+                        nanobar.go(30);
+                    },
+                    processData: false,
+                    contentType: false,
+                    success: function(result) {
+                        if (result.success) {
+                            nanobar.go(100);
+                            setTimeout(function() {
+                                var html = tmpl('/course/upload_success.tpl', result);
+                                obj.parent().parent().parent().parent().find('.noidungtailen').append(html);
+                            }, 800);
+
+                        }
+                    }
+                });
+            }
+        });
+    } else {
+        alert("Trình duyệt không hỗ trợ");
+    }
+});
+
+
+$(document).ready(function() {
+    $('body').on('change', '.inputaddoc', function(e) {
+        e.preventDefault();
+        var obj = $(this);
+
+        var files = null;
+        var data_form = null;
+
+        files = e.target.files;
+        data_form = new FormData();
+        $.each(files, function(key, value) {
+            data_form.append('file', value);
+        });
+
+        if (files != '' && typeof files != 'undefined' && files.length != 0) {
+            var nanobar = new Nanobar({
+                color: 'blue'
+            });
+            data_form.append('courseId', $('#course_id').val());
+        }
+
+        $.ajax({
+            url: '/upload/uploadcourse',
+            type: "POST",
+            data: data_form,
+            beforeSend: function(xhr) {
+                nanobar.go(30);
+            },
+            processData: false,
+            contentType: false,
+            success: function(result) {
+                if (result.success) {
+                    nanobar.go(100);
+                    setTimeout(function() {
+                        var html = "<div class='noidung_course relative'>";
+                        html += "<p>" + result.data.fileName + "</p>";
+                        html += "<a onclick='upload.remove(this, " + result.data.id + ");' class='btnXoa'></a>";
+                        html += "</div>";
+                        $('.noidungtailen_course').append(html);
+                    }, 800);
+                }
+            }
+        });
+
+    });
+});
+
+

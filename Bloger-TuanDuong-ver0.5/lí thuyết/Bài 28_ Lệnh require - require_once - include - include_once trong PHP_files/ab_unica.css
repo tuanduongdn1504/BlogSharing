@@ -1,0 +1,102 @@
+﻿#mainfooter .module-5 {
+    background: #b56c6c;
+    padding-bottom: 40px
+}
+
+#mainfooter .module-5 h5 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    margin: 42px 26px
+}
+
+#mainfooter .module-5 .form-subscribe {
+    width: 100%;
+    padding: 0
+}
+@media (max-width:767px) {
+#mainfooter .module-5 .form-subscribe button {
+    width: 89% !important;
+    margin-left: 16px;
+    margin-right: 15px;
+    float: none !important;
+    font-size: 14px !important;
+    font-weight: 300;
+    background: #faff65;
+    border: 0;
+    border-radius: 0;
+    height: 35px !important;
+    line-height: 35px !important;}}
+@media (max-width: 468px) and (min-width: 360px){
+#mainfooter .module-5 .form-subscribe button {
+    margin: 6px 0px 0px 15px;
+    width: 91% !important;
+}
+}
+.form-control-footer {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    height: 50px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    border: none;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+#mainfooter .module-5 .form-subscribe .form-group {
+    width: 80%;
+    float: left
+}
+
+#mainfooter .module-5 .form-subscribe .form-group input {
+    font-size: 16px;
+    padding: 0 28px;
+    font-weight: 300
+}
+
+#mainfooter .module-5 .form-subscribe button {
+    font-size: 16px;
+    font-weight: 300;
+    background: #faff65;
+    border: 0;
+    border-radius: 0;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+    width: 18%;
+    color: #252525;
+    float: right;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s
+}
+
+#mainfooter .module-5 .form-subscribe button:hover {
+    opacity: 0.8
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 992px) {
+
+}
+
+
+.form-control-footer {
+    margin-top: 5px;
+}
+
+@media (min-width: 1201px) {
+
+}
